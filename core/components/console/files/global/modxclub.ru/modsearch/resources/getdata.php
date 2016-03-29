@@ -7,10 +7,11 @@ $modx->setLogTarget('HTML');
  
 $namespace = 'modxsite';        // Неймспейс комопонента
 
-$params = array(  
+$params = array(
+    "search"    => "shopmodxbox",
 );
 
-if(!$response = $modx->runProcessor('site/web/getdata',
+if(!$response = $modx->runProcessor('site/web/resources/getdata',
 $params
 , array(
 'processors_path' => $modx->getObject('modNamespace', $namespace)->getCorePath().'processors/',

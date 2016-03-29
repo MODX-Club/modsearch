@@ -6,6 +6,22 @@ $vehicle->resolve('file',array(
 ));
 $modx->log(modX::LOG_LEVEL_INFO,'Packaged in CorePath'); flush();
 
+// Add console scripts
+# $data = array(
+#     'source' => MODX_CORE_PATH .'components/console/files/global/modxclub.ru/modsearch/',
+#     'target' => "return MODX_CORE_PATH . 'components/';",
+# );
+# $vehicle->resolve('file',$data);
+# 
+# print_r($data);
+
+
+$vehicle->resolve('file',array(
+    'source' => $sources['source_console'] . 'files/global/modxclub.ru/modsearch/',
+    'target' => "return MODX_CORE_PATH . 'components/console/files/global/modxclub.ru/';",
+));
+$modx->log(modX::LOG_LEVEL_INFO,'Packaged in Console Scripts'); flush();
+
 // Add assets source
 # $vehicle->resolve('file',array(
 #     'source' => $sources['source_assets'],
