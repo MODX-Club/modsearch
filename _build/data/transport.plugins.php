@@ -13,7 +13,7 @@ if(!empty($content)){
    */
   
   $plugin = $modx->newObject('modPlugin');
-  $plugin->set('id', 1);
+  $plugin->set('id', 0);
   $plugin->set('name', $plugin_name );
   $plugin->set('description', $plugin_name.'_desc');
   $plugin->set('plugincode', $content );
@@ -22,9 +22,9 @@ if(!empty($content)){
   /* add plugin events */
   $events = array();
   
-  $events['OnHandleRequest'] = $modx->newObject('modPluginEvent');
-  $events['OnHandleRequest'] -> fromArray(array(
-   'event' => 'OnHandleRequest',
+  $events['OnDocFormSave'] = $modx->newObject('modPluginEvent');
+  $events['OnDocFormSave'] -> fromArray(array(
+   'event' => 'OnDocFormSave',
    'priority' => 0,
    'propertyset' => 0,
   ),'',true,true);

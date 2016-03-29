@@ -2,11 +2,12 @@
 
 $settings = array();
 
-$setting_name = PKG_NAME_LOWER.'.setting';
+$setting_name = PKG_NAME_LOWER;
 $setting = $modx->newObject('modSystemSetting');
+
 $setting->fromArray(array(
- 'key' => $setting_name,
- 'value' => '',
+ 'key' => $setting_name . ".index_fields",
+ 'value' => 'pagetitle,longtitle,content',
  'xtype' => 'textfield',
  'namespace' => NAMESPACE_NAME,
  'area' => 'default',

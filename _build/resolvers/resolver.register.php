@@ -1,5 +1,5 @@
 <?php
-$pkgName = 'SamplePackage';
+$pkgName = 'modSearch';
 $pkgNameLower = strtolower($pkgName);
 
 if ($object->xpdo) {
@@ -10,7 +10,7 @@ if ($object->xpdo) {
     case xPDOTransport::ACTION_INSTALL:
     case xPDOTransport::ACTION_UPGRADE:
       if ($modx instanceof modX) {
-        $modx->addExtensionPackage($pkgName, "[[++core_path]]components/{$pkgNameLower}/model/", array(
+        $modx->addExtensionPackage($pkgNameLower, "[[++core_path]]components/{$pkgNameLower}/model/", array(
           // 'serviceName' => $pkgName,
           // 'serviceClass' => $pkgName,
         ));
@@ -20,7 +20,7 @@ if ($object->xpdo) {
         
     case xPDOTransport::ACTION_UNINSTALL:
       if ($modx instanceof modX) {
-        $modx->removeExtensionPackage($pkgName);
+        $modx->removeExtensionPackage($pkgNameLower);
       }
       break;
   }
