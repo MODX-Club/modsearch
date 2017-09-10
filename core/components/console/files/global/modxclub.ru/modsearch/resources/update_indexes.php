@@ -58,6 +58,12 @@ $s->execute();
 
 while($row = $s->fetch(PDO::FETCH_ASSOC)){
     $modx->error->reset();
+    
+    unset($row['publishedon']);
+    unset($row['createdon']);
+    unset($row['deletedon']);
+    unset($row['editedon']);
+    
     $response = $modx->runProcessor('resource/update', $row);
     if($response->isError()){
         print_r($response->getResponse());
